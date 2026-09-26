@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://1dpsoohc722d" path="res://assets/robot walk.png" id="5_q6r6c"]
 [ext_resource type="Texture2D" uid="uid://b3eyyrjah1qo2" path="res://assets/dynamite.png" id="7_d21ai"]
 [ext_resource type="Script" uid="uid://bvxfppuldcg46" path="res://bomb.gd" id="7_rj586"]
+[ext_resource type="Script" uid="uid://cx6gy2xd723bi" path="res://hud.gd" id="10_ir8iy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_epypp"]
 texture = ExtResource("2_0e48y")
@@ -234,7 +235,7 @@ size = Vector2(383, 7)
 script = ExtResource("1_4d7sh")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=538146852]
-tile_map_data = PackedByteArray("AAAAAAAAAAACAAMAAAABAAAAAAADAAMAAAADAAAAAAAEAAMAAAADAP//AAAEAAIAAAADAP7/AAAEAAEAAAACAP//AAAEAAEAAAACAAAAAAAEAAMAAAAAAP3/AAACAAMAAAABAP3/AAADAAMAAAD///3/AAABAAMAAAD+////AAAEAAEAAAD//wAAAAABAAMAAAD9//7/AAAEAAEAAAD+/wAAAAAEAAMAAAD9////AAAEAAIAAAD9/wAAAAAEAAMAAAA=")
+tile_map_data = PackedByteArray("AAAAAAAAAAACAAMAAAABAAAAAAADAAMAAAACAP//AAAEAAEAAAACAAAAAAAEAAMAAAAAAP3/AAACAAMAAAABAP3/AAADAAMAAAD///3/AAABAAMAAAD+////AAAEAAEAAAD//wAAAAABAAMAAAD+/wAAAAAEAAMAAAD8//7/AAAEAAEAAAD8////AAAEAAIAAAD8/wAAAAAEAAMAAAAEAP7/AAAEAAEAAAAEAP//AAAEAAIAAAAEAAAAAAAEAAMAAAADAP7/AAAEAAEAAAADAP//AAAEAAIAAAADAAAAAAAEAAMAAAD9/wAAAAAEAAMAAAD9////AAAEAAIAAAD9//7/AAAEAAEAAAA=")
 tile_set = SubResource("TileSet_3gysh")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2081166975]
@@ -248,7 +249,7 @@ position = Vector2(17, -89)
 shape = SubResource("RectangleShape2D_jjhhy")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=919965466]
-position = Vector2(-47.5, -25.5)
+position = Vector2(-48, -26)
 shape = SubResource("RectangleShape2D_uc1ph")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=1298454851]
@@ -256,7 +257,7 @@ position = Vector2(-80, -58)
 shape = SubResource("RectangleShape2D_uc1ph")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" unique_id=1639810548]
-position = Vector2(81, -27)
+position = Vector2(80, -26)
 shape = SubResource("RectangleShape2D_uc1ph")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D" unique_id=1303429687]
@@ -334,3 +335,17 @@ shape = SubResource("RectangleShape2D_r7ta6")
 [node name="Floor" type="CollisionShape2D" parent="WorldBounds" unique_id=2128955566]
 position = Vector2(0.5, 31.5)
 shape = SubResource("RectangleShape2D_xgl6b")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1788174972]
+layer = 4
+offset = Vector2(-120, -160)
+scale = Vector2(0.75, 0.75)
+transform = Transform2D(0.75, 0, 0, 0.75, -120, -160)
+follow_viewport_enabled = true
+script = ExtResource("10_ir8iy")
+
+[node name="BombTimerLabel" type="Label" parent="HUD" unique_id=893801368]
+visibility_layer = 512
+offset_right = 65.0
+offset_bottom = 23.0
+text = "Time: 15"
