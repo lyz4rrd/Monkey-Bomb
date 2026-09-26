@@ -7,17 +7,26 @@ extends Area2D
 @export var bomb_duration: float = 15.0
 var time_remaining: float
 
+var exploded: bool = false
+
+@onready var explosion = get_tree().current_scene.get_node("Explosion")
+@onready var explosion_sprite = explosion.get_node("AnimatedSprite2D")
+
 var holder: CharacterBody2D
 var cooldown_remaining: float = 0.0
 
 func _ready() -> void:
 	time_remaining = bomb_duration
+	explosion.hide()
 
 func _physics_process(delta: float) -> void:
 	if cooldown_remaining > 0.0:
 		cooldown_remaining -= delta
 	if time_remaining > 0.0:
 		time_remaining -= delta
+		if time_remaining <= 0.0:
+			time_remaining = 0.0
+			explode()
 
 func set_holder(new_holder: CharacterBody2D) -> void:
 	holder = new_holder
@@ -26,7 +35,7 @@ func set_holder(new_holder: CharacterBody2D) -> void:
 
 
 func can_transfer() -> bool:
-	return cooldown_remaining <= 0.0
+	return cooldown_remaining <= 0.0 and not exploded
 
 func _attach_to_holder() -> void:
 	if holder == null:
@@ -37,3 +46,51 @@ func _attach_to_holder() -> void:
 		position = player_holder_offset
 	elif holder.is_in_group("robot"):
 		position = robot_holder_offset
+
+func explode() -> void:
+	if exploded:
+		return
+
+	exploded = true
+
+	if holder == null:
+		return
+
+	# Remember who had the bomb
+	var bomb_holder = holder
+	var player_died = bomb_holder.is_in_group("player")
+
+	# Put explosion at holder's position
+	explosion.global_position = bomb_holder.global_position
+
+	# Show and play explosion
+	explosion.show()
+	explosion_sprite.show()
+	explosion_sprite.frame = 0
+	explosion_sprite.play("explode")
+
+	# Hide the holder instead of deleting them immediately.
+	# This keeps the Bomb alive while the explosion plays.
+	bomb_holder.hide()
+
+	# Calculate how long the animation takes
+	var frame_count = explosion_sprite.sprite_frames.get_frame_count("explode")
+	var animation_speed = explosion_sprite.sprite_frames.get_animation_speed("explode")
+	var animation_length = frame_count / animation_speed
+
+	# Wait for the explosion animation
+	await get_tree().create_timer(animation_length).timeout
+
+	print("Animation finished")
+
+	# Hide the explosion
+	explosion_sprite.stop()
+	explosion_sprite.hide()
+	explosion.hide()
+
+	# Now remove the holder
+	bomb_holder.queue_free()
+
+	# Reset if the player died
+	if player_died:
+		get_tree().reload_current_scene()

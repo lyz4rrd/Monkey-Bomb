@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://b3eyyrjah1qo2" path="res://assets/dynamite.png" id="7_d21ai"]
 [ext_resource type="Script" uid="uid://bvxfppuldcg46" path="res://bomb.gd" id="7_rj586"]
 [ext_resource type="Script" uid="uid://cx6gy2xd723bi" path="res://hud.gd" id="10_ir8iy"]
+[ext_resource type="Texture2D" uid="uid://cb7nm2hgw4426" path="res://assets/explosion.png" id="11_hqns4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_epypp"]
 texture = ExtResource("2_0e48y")
@@ -222,6 +223,56 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_flf07"]
+atlas = ExtResource("11_hqns4")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k73cj"]
+atlas = ExtResource("11_hqns4")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rjqkl"]
+atlas = ExtResource("11_hqns4")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fs4d3"]
+atlas = ExtResource("11_hqns4")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7vxoj"]
+atlas = ExtResource("11_hqns4")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ei405"]
+atlas = ExtResource("11_hqns4")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1iiia"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_flf07")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k73cj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rjqkl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fs4d3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7vxoj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ei405")
+}],
+"loop": 0,
+"name": &"explode",
+"speed": 7.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mr4tp"]
 size = Vector2(7, 216)
 
@@ -322,6 +373,14 @@ position = Vector2(2, -3)
 scale = Vector2(0.40624997, 0.4375)
 sprite_frames = SubResource("SpriteFrames_uc1ph")
 
+[node name="Explosion" type="Area2D" parent="." unique_id=1794013818]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Explosion" unique_id=542358968]
+sprite_frames = SubResource("SpriteFrames_1iiia")
+animation = &"explode"
+frame = 4
+frame_progress = 0.3002262
+
 [node name="WorldBounds" type="StaticBody2D" parent="." unique_id=1848361717]
 
 [node name="LeftWall" type="CollisionShape2D" parent="WorldBounds" unique_id=221550643]
@@ -349,3 +408,4 @@ visibility_layer = 512
 offset_right = 65.0
 offset_bottom = 23.0
 text = "Time: 15"
+metadata/_edit_use_anchors_ = true
