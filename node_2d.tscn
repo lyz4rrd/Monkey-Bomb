@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://dxh5c56mxvuim"]
 
+[ext_resource type="Script" uid="uid://bqpoi23k5ir7r" path="res://level.gd" id="1_4d7sh"]
 [ext_resource type="Texture2D" uid="uid://cha81f83lbbus" path="res://assets/character.png" id="1_wtcfe"]
 [ext_resource type="Texture2D" uid="uid://bgcsi7fwydje7" path="res://assets/Laboratory.png" id="2_0e48y"]
 [ext_resource type="Script" uid="uid://cu4pwskxhl427" path="res://player.gd" id="2_epypp"]
@@ -139,6 +140,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3gysh"]
 size = Vector2(8, 12)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ic27k"]
+size = Vector2(11, 13)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_ir8iy"]
 atlas = ExtResource("5_q6r6c")
 region = Rect2(0, 0, 64, 64)
@@ -202,18 +206,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xcyda"]
 size = Vector2(7, 11)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mr4tp"]
-size = Vector2(7, 216)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_r7ta6"]
-size = Vector2(6, 216)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xgl6b"]
-size = Vector2(383, 7)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uooy5"]
-size = Vector2(6, 8)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_ta5nu"]
 atlas = ExtResource("7_d21ai")
 region = Rect2(0, 0, 32, 32)
@@ -229,7 +221,17 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mr4tp"]
+size = Vector2(7, 216)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r7ta6"]
+size = Vector2(6, 216)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xgl6b"]
+size = Vector2(383, 7)
+
 [node name="Level1" type="Node2D" unique_id=1401634823]
+script = ExtResource("1_4d7sh")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=538146852]
 tile_map_data = PackedByteArray("AAAAAAAAAAACAAMAAAABAAAAAAADAAMAAAADAAAAAAAEAAMAAAADAP//AAAEAAIAAAADAP7/AAAEAAEAAAACAP//AAAEAAEAAAACAAAAAAAEAAMAAAAAAP3/AAACAAMAAAABAP3/AAADAAMAAAD///3/AAABAAMAAAD+////AAAEAAEAAAD//wAAAAABAAMAAAD9//7/AAAEAAEAAAD+/wAAAAAEAAMAAAD9////AAAEAAIAAAD9/wAAAAAEAAMAAAA=")
@@ -290,6 +292,12 @@ shape = SubResource("RectangleShape2D_3gysh")
 offset = Vector2(0, -80)
 zoom = Vector2(3, 3)
 
+[node name="BombTransferArea" type="Area2D" parent="Player" unique_id=102773442]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/BombTransferArea" unique_id=1480979422]
+position = Vector2(1.5, -21.5)
+shape = SubResource("RectangleShape2D_ic27k")
+
 [node name="Robot" type="CharacterBody2D" parent="." unique_id=1670047660 groups=["robot"]]
 position = Vector2(21, -100)
 script = ExtResource("5_kdubu")
@@ -304,6 +312,15 @@ animation = &"run"
 position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_xcyda")
 
+[node name="Bomb" type="Area2D" parent="." unique_id=1841599484 groups=["bomb"]]
+position = Vector2(-13, -112)
+script = ExtResource("7_rj586")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Bomb" unique_id=1042594566]
+position = Vector2(2, -3)
+scale = Vector2(0.40624997, 0.4375)
+sprite_frames = SubResource("SpriteFrames_uc1ph")
+
 [node name="WorldBounds" type="StaticBody2D" parent="." unique_id=1848361717]
 
 [node name="LeftWall" type="CollisionShape2D" parent="WorldBounds" unique_id=221550643]
@@ -317,17 +334,3 @@ shape = SubResource("RectangleShape2D_r7ta6")
 [node name="Floor" type="CollisionShape2D" parent="WorldBounds" unique_id=2128955566]
 position = Vector2(0.5, 31.5)
 shape = SubResource("RectangleShape2D_xgl6b")
-
-[node name="Bomb" type="Area2D" parent="." unique_id=1841599484]
-position = Vector2(-13, -112)
-script = ExtResource("7_rj586")
-holder_offset = Vector2(0, -26)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bomb" unique_id=1834380809]
-position = Vector2(2, -2)
-shape = SubResource("RectangleShape2D_uooy5")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Bomb" unique_id=1042594566]
-position = Vector2(2, -3)
-scale = Vector2(0.40624997, 0.4375)
-sprite_frames = SubResource("SpriteFrames_uc1ph")
