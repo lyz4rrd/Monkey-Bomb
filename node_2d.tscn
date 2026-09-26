@@ -1,15 +1,15 @@
 [gd_scene format=4 uid="uid://dxh5c56mxvuim"]
 
-[ext_resource type="Script" uid="uid://bqpoi23k5ir7r" path="res://level.gd" id="1_4d7sh"]
+[ext_resource type="Script" uid="uid://bqpoi23k5ir7r" path="res://scripts/level.gd" id="1_4d7sh"]
 [ext_resource type="Texture2D" uid="uid://cha81f83lbbus" path="res://assets/character.png" id="1_wtcfe"]
 [ext_resource type="Texture2D" uid="uid://bgcsi7fwydje7" path="res://assets/Laboratory.png" id="2_0e48y"]
-[ext_resource type="Script" uid="uid://cu4pwskxhl427" path="res://player.gd" id="2_epypp"]
+[ext_resource type="Script" uid="uid://cu4pwskxhl427" path="res://scripts/player.gd" id="2_epypp"]
 [ext_resource type="Texture2D" uid="uid://cntcfxpysacsw" path="res://assets/level-doors/lvl-1-door.png" id="4_0hol4"]
-[ext_resource type="Script" uid="uid://cueo27r2drk8g" path="res://robot.gd" id="5_kdubu"]
+[ext_resource type="Script" uid="uid://cueo27r2drk8g" path="res://scripts/robot.gd" id="5_kdubu"]
 [ext_resource type="Texture2D" uid="uid://1dpsoohc722d" path="res://assets/robot walk.png" id="5_q6r6c"]
 [ext_resource type="Texture2D" uid="uid://b3eyyrjah1qo2" path="res://assets/dynamite.png" id="7_d21ai"]
-[ext_resource type="Script" uid="uid://bvxfppuldcg46" path="res://bomb.gd" id="7_rj586"]
-[ext_resource type="Script" uid="uid://cx6gy2xd723bi" path="res://hud.gd" id="10_ir8iy"]
+[ext_resource type="Script" uid="uid://bvxfppuldcg46" path="res://scripts/bomb.gd" id="7_rj586"]
+[ext_resource type="Script" uid="uid://cx6gy2xd723bi" path="res://scripts/hud.gd" id="10_ir8iy"]
 [ext_resource type="Texture2D" uid="uid://cb7nm2hgw4426" path="res://assets/explosion.png" id="11_hqns4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_epypp"]
@@ -62,8 +62,8 @@ size = Vector2(94, 9)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uc1ph"]
 size = Vector2(29, 9)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1iiia"]
-size = Vector2(20, 24)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ln8yi"]
+size = Vector2(21, 26)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0e48y"]
 atlas = ExtResource("1_wtcfe")
@@ -315,17 +315,16 @@ shape = SubResource("RectangleShape2D_uc1ph")
 position = Vector2(112, -58)
 shape = SubResource("RectangleShape2D_uc1ph")
 
-[node name="Lvl1Door" type="Sprite2D" parent="." unique_id=378110627]
-position = Vector2(49, -112)
+[node name="LevelDoor" type="Area2D" parent="." unique_id=580528365]
+position = Vector2(100, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelDoor" unique_id=906147204]
+position = Vector2(-49, -111)
 texture = ExtResource("4_0hol4")
 
-[node name="Area2D" type="Area2D" parent="Lvl1Door" unique_id=1784149932]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lvl1Door/Area2D" unique_id=424601586]
-position = Vector2(0, 2)
-shape = SubResource("RectangleShape2D_1iiia")
-
-[node name="Sprite2D" type="Sprite2D" parent="Lvl1Door" unique_id=251756474]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelDoor" unique_id=586452081]
+position = Vector2(-49, -108)
+shape = SubResource("RectangleShape2D_ln8yi")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=474383502 groups=["player"]]
 script = ExtResource("2_epypp")
@@ -409,3 +408,5 @@ offset_right = 65.0
 offset_bottom = 23.0
 text = "Time: 15"
 metadata/_edit_use_anchors_ = true
+
+[connection signal="body_entered" from="LevelDoor" to="." method="_on_level_door_body_entered"]
