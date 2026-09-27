@@ -91,6 +91,7 @@ func explode() -> void:
 	# Now remove the holder
 	bomb_holder.queue_free()
 
-	# Reset if the player died
+	# Reset if the player died + dec life
 	if player_died:
+		GameManager.lose_life()
 		get_tree().reload_current_scene()
