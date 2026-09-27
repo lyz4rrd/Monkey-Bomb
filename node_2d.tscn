@@ -62,6 +62,9 @@ size = Vector2(94, 9)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uc1ph"]
 size = Vector2(29, 9)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1iiia"]
+size = Vector2(62, 9)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ln8yi"]
 size = Vector2(21, 26)
 
@@ -280,40 +283,40 @@ size = Vector2(7, 216)
 size = Vector2(6, 216)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xgl6b"]
-size = Vector2(383, 7)
+size = Vector2(361, 7)
 
 [node name="Level1" type="Node2D" unique_id=1401634823]
 script = ExtResource("1_4d7sh")
 
-[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=538146852]
+[node name="LevelMap" type="TileMapLayer" parent="." unique_id=538146852]
 tile_map_data = PackedByteArray("AAAAAAAAAAACAAMAAAABAAAAAAADAAMAAAACAP//AAAEAAEAAAACAAAAAAAEAAMAAAAAAP3/AAACAAMAAAABAP3/AAADAAMAAAD///3/AAABAAMAAAD+////AAAEAAEAAAD//wAAAAABAAMAAAD+/wAAAAAEAAMAAAD8//7/AAAEAAEAAAD8////AAAEAAIAAAD8/wAAAAAEAAMAAAAEAP7/AAAEAAEAAAAEAP//AAAEAAIAAAAEAAAAAAAEAAMAAAADAP7/AAAEAAEAAAADAP//AAAEAAIAAAADAAAAAAAEAAMAAAD9/wAAAAAEAAMAAAD9////AAAEAAIAAAD9//7/AAAEAAEAAAA=")
 tile_set = SubResource("TileSet_3gysh")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2081166975]
+[node name="MapCollisions" type="StaticBody2D" parent="." unique_id=2081166975]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1577517457]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MapCollisions" unique_id=1577517457]
 position = Vector2(16, 5.5)
 shape = SubResource("RectangleShape2D_jjhhy")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=960652056]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="MapCollisions" unique_id=960652056]
 position = Vector2(17, -89)
 shape = SubResource("RectangleShape2D_jjhhy")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=919965466]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="MapCollisions" unique_id=919965466]
 position = Vector2(-48, -26)
 shape = SubResource("RectangleShape2D_uc1ph")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=1298454851]
-position = Vector2(-80, -58)
-shape = SubResource("RectangleShape2D_uc1ph")
-
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" unique_id=1639810548]
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="MapCollisions" unique_id=1639810548]
 position = Vector2(80, -26)
 shape = SubResource("RectangleShape2D_uc1ph")
 
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D" unique_id=1303429687]
-position = Vector2(112, -58)
-shape = SubResource("RectangleShape2D_uc1ph")
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="MapCollisions" unique_id=219578448]
+position = Vector2(-96, -58.5)
+shape = SubResource("RectangleShape2D_1iiia")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="MapCollisions" unique_id=1630838457]
+position = Vector2(128, -58)
+shape = SubResource("RectangleShape2D_1iiia")
 
 [node name="LevelDoor" type="Area2D" parent="." unique_id=580528365]
 position = Vector2(100, 0)
@@ -341,7 +344,7 @@ shape = SubResource("RectangleShape2D_3gysh")
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=694398917]
 offset = Vector2(0, -80)
-zoom = Vector2(3, 3)
+zoom = Vector2(2.8, 2.8)
 
 [node name="BombTransferArea" type="Area2D" parent="Player" unique_id=102773442]
 
@@ -350,7 +353,7 @@ position = Vector2(1.5, -21.5)
 shape = SubResource("RectangleShape2D_ic27k")
 
 [node name="Robot" type="CharacterBody2D" parent="." unique_id=1670047660 groups=["robot"]]
-position = Vector2(21, -100)
+position = Vector2(145, -68)
 script = ExtResource("5_kdubu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Robot" unique_id=1490095343]
@@ -383,7 +386,7 @@ frame_progress = 0.3002262
 [node name="WorldBounds" type="StaticBody2D" parent="." unique_id=1848361717]
 
 [node name="LeftWall" type="CollisionShape2D" parent="WorldBounds" unique_id=221550643]
-position = Vector2(-196.5, -79)
+position = Vector2(-165, -78)
 shape = SubResource("RectangleShape2D_mr4tp")
 
 [node name="RightWall" type="CollisionShape2D" parent="WorldBounds" unique_id=436436302]
@@ -391,7 +394,7 @@ position = Vector2(195, -81)
 shape = SubResource("RectangleShape2D_r7ta6")
 
 [node name="Floor" type="CollisionShape2D" parent="WorldBounds" unique_id=2128955566]
-position = Vector2(0.5, 31.5)
+position = Vector2(15, 32)
 shape = SubResource("RectangleShape2D_xgl6b")
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1788174972]
@@ -408,5 +411,12 @@ offset_right = 65.0
 offset_bottom = 23.0
 text = "Time: 15"
 metadata/_edit_use_anchors_ = true
+
+[node name="LivesLabel" type="Label" parent="HUD" unique_id=1768718409]
+offset_left = 334.6667
+offset_top = -6.666667
+offset_right = 374.6667
+offset_bottom = 16.333332
+text = "Lives"
 
 [connection signal="body_entered" from="LevelDoor" to="." method="_on_level_door_body_entered"]
