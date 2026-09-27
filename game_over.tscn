@@ -1,3 +1,26 @@
 [gd_scene format=3 uid="uid://bmfhkoe3nbak0"]
 
+[ext_resource type="Script" uid="uid://dcjepdi4bm517" path="res://game_over.gd" id="1_y26ei"]
+
 [node name="GameOver" type="Node2D" unique_id=2050444997]
+script = ExtResource("1_y26ei")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=455050544]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=375987332]
+layout_mode = 2
+
+[node name="GameOverLabel" type="Label" parent="CenterContainer/VBoxContainer" unique_id=588538128]
+layout_mode = 2
+text = "Oh no! Time for the Evil Scientists to get a new monkey I suppose…"
+
+[node name="PlayAgainButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=181861441]
+layout_mode = 2
+text = "Play Again?"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/PlayAgainButton" to="." method="_on_play_again_button_pressed"]
