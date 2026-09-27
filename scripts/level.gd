@@ -8,11 +8,5 @@ func _ready() -> void:
 	bomb.set_holder(robot)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
 func _on_level_door_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player"):
-		print("PLAYER REACHED DOOR")
+	pass # Replace with function body.

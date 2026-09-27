@@ -52,6 +52,9 @@ func explode() -> void:
 		return
 
 	exploded = true
+	
+	var door = get_tree().current_scene.get_node("LevelDoor")
+	door.unlocked = true
 
 	if holder == null:
 		return
