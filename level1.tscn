@@ -369,10 +369,6 @@ speed_scale = 1.5
 position = Vector2(2, -20)
 shape = SubResource("RectangleShape2D_3gysh")
 
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=694398917]
-offset = Vector2(0, -80)
-zoom = Vector2(2.8, 2.8)
-
 [node name="BombTransferArea" type="Area2D" parent="Player" unique_id=102773442]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/BombTransferArea" unique_id=1480979422]
@@ -438,23 +434,28 @@ script = ExtResource("10_ir8iy")
 
 [node name="BombTimerLabel" type="Label" parent="HUD" unique_id=893801368]
 visibility_layer = 512
-offset_right = 65.0
-offset_bottom = 23.0
+offset_left = -69.333336
+offset_top = -32.0
+offset_right = -4.333336
+offset_bottom = -9.0
 text = "Time: 15"
 metadata/_edit_use_anchors_ = true
 
 [node name="LivesLabel" type="Label" parent="HUD" unique_id=1768718409]
-offset_left = 334.6667
-offset_top = -6.666667
-offset_right = 374.6667
-offset_bottom = 16.333332
+offset_left = 368.0
+offset_top = -32.0
+offset_right = 408.0
+offset_bottom = -9.0
 text = "Lives"
+metadata/_edit_use_anchors_ = true
 
 [node name="BananaBoostLabel" type="Label" parent="HUD" unique_id=366129792]
-offset_left = 156.0
-offset_right = 196.0
-offset_bottom = 23.0
+offset_left = 141.33333
+offset_top = -30.666668
+offset_right = 190.33333
+offset_bottom = -7.666668
 text = "Boost:"
+metadata/_edit_use_anchors_ = true
 
 [node name="Banana" type="Area2D" parent="." unique_id=571794125]
 position = Vector2(100, 0)
@@ -467,5 +468,9 @@ shape = SubResource("RectangleShape2D_n8vhr")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Banana" unique_id=1816724190]
 position = Vector2(-84, -114)
 sprite_frames = SubResource("SpriteFrames_xcyda")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=276861968]
+offset = Vector2(15, -76)
+zoom = Vector2(3, 3)
 
 [connection signal="body_entered" from="LevelDoor" to="." method="_on_level_door_body_entered"]

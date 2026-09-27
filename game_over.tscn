@@ -20,4 +20,10 @@ text = "Oh no! Time for the Evil Scientists to get a new monkey I suppose…"
 layout_mode = 2
 text = "Play Again?"
 
+[node name="ExitGameButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1073486951]
+layout_mode = 2
+text = "Exit Game"
+
 [connection signal="pressed" from="CenterContainer/VBoxContainer/PlayAgainButton" to="." method="_on_play_again_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/ExitGameButton" to="." method="_on_exit_game_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/ExitGameButton" to="." method="_on_button_pressed"]
