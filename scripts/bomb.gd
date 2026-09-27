@@ -93,5 +93,9 @@ func explode() -> void:
 
 	# Reset if the player died + dec life
 	if player_died:
-		GameManager.lose_life()
-		get_tree().reload_current_scene()
+		var game_over = GameManager.lose_life()
+		
+		if game_over:
+			get_tree().change_scene_to_file("res://game_over.tscn")
+		else:
+			get_tree().reload_current_scene()

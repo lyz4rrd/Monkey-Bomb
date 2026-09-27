@@ -369,6 +369,10 @@ shape = SubResource("RectangleShape2D_xcyda")
 [node name="Bomb" type="Area2D" parent="." unique_id=1841599484 groups=["bomb"]]
 position = Vector2(-13, -112)
 script = ExtResource("7_rj586")
+player_holder_offset = null
+robot_holder_offset = null
+transfer_cooldown = null
+bomb_duration = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Bomb" unique_id=1042594566]
 position = Vector2(2, -3)
