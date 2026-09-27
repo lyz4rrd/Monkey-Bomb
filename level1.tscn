@@ -11,6 +11,8 @@
 [ext_resource type="Script" uid="uid://bvxfppuldcg46" path="res://scripts/bomb.gd" id="7_rj586"]
 [ext_resource type="Script" uid="uid://cx6gy2xd723bi" path="res://scripts/hud.gd" id="10_ir8iy"]
 [ext_resource type="Texture2D" uid="uid://cb7nm2hgw4426" path="res://assets/explosion.png" id="11_hqns4"]
+[ext_resource type="Script" uid="uid://dqkuep6hi6av6" path="res://scripts/banana.gd" id="12_n8vhr"]
+[ext_resource type="Texture2D" uid="uid://c2treaf0aavbg" path="res://assets/interactive_tiles.png" id="13_eqrsh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_epypp"]
 texture = ExtResource("2_0e48y")
@@ -285,6 +287,31 @@ size = Vector2(6, 216)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xgl6b"]
 size = Vector2(361, 7)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n8vhr"]
+size = Vector2(6, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3l65w"]
+atlas = ExtResource("13_eqrsh")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rjtee"]
+atlas = ExtResource("13_eqrsh")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xcyda"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3l65w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rjtee")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 1.0
+}]
+
 [node name="Level1" type="Node2D" unique_id=1401634823]
 script = ExtResource("1_4d7sh")
 
@@ -422,5 +449,23 @@ offset_top = -6.666667
 offset_right = 374.6667
 offset_bottom = 16.333332
 text = "Lives"
+
+[node name="BananaBoostLabel" type="Label" parent="HUD" unique_id=366129792]
+offset_left = 156.0
+offset_right = 196.0
+offset_bottom = 23.0
+text = "Boost:"
+
+[node name="Banana" type="Area2D" parent="." unique_id=571794125]
+position = Vector2(100, 0)
+script = ExtResource("12_n8vhr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Banana" unique_id=1237081049]
+position = Vector2(-85, -111.5)
+shape = SubResource("RectangleShape2D_n8vhr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Banana" unique_id=1816724190]
+position = Vector2(-84, -114)
+sprite_frames = SubResource("SpriteFrames_xcyda")
 
 [connection signal="body_entered" from="LevelDoor" to="." method="_on_level_door_body_entered"]
