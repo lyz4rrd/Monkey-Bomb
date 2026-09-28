@@ -52,6 +52,9 @@ func explode() -> void:
 		return
 
 	exploded = true
+	
+	var door = get_tree().current_scene.get_node("LevelDoor")
+	door.unlocked = true
 
 	if holder == null:
 		return
@@ -81,7 +84,6 @@ func explode() -> void:
 	# Wait for the explosion animation
 	await get_tree().create_timer(animation_length).timeout
 
-	print("Animation finished")
 
 	# Hide the explosion
 	explosion_sprite.stop()
