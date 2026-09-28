@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://bqpoi23k5ir7r" path="res://scripts/level.gd" id="1_siwpi"]
 [ext_resource type="Texture2D" uid="uid://bgcsi7fwydje7" path="res://assets/Laboratory.png" id="2_0m7xm"]
 [ext_resource type="Script" uid="uid://7k5ydbgkfkvg" path="res://level_door.gd" id="3_qoi87"]
-[ext_resource type="Texture2D" uid="uid://cntcfxpysacsw" path="res://assets/level-doors/lvl-1-door.png" id="4_i6w5t"]
 [ext_resource type="Script" uid="uid://cu4pwskxhl427" path="res://scripts/player.gd" id="5_l2pgs"]
+[ext_resource type="Texture2D" uid="uid://cq21sbtjbjhug" path="res://assets/level-doors/lvl-3-door.png" id="5_siwpi"]
 [ext_resource type="Texture2D" uid="uid://cha81f83lbbus" path="res://assets/character.png" id="6_2272n"]
 [ext_resource type="Script" uid="uid://cueo27r2drk8g" path="res://scripts/robot.gd" id="7_bs5pn"]
 [ext_resource type="Texture2D" uid="uid://1dpsoohc722d" path="res://assets/robot walk.png" id="8_utqry"]
@@ -403,7 +403,7 @@ script = ExtResource("3_qoi87")
 
 [node name="Sprite2D" type="Sprite2D" parent="LevelDoor" unique_id=906147204]
 position = Vector2(-3, 1)
-texture = ExtResource("4_i6w5t")
+texture = ExtResource("5_siwpi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelDoor" unique_id=586452081]
 position = Vector2(-4, 2)
