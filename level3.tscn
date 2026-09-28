@@ -400,6 +400,7 @@ shape = SubResource("RectangleShape2D_cq7ag")
 [node name="LevelDoor" type="Area2D" parent="." unique_id=580528365]
 position = Vector2(-76, -112)
 script = ExtResource("3_qoi87")
+next_level = "uid://b3gxtot2ku86"
 
 [node name="Sprite2D" type="Sprite2D" parent="LevelDoor" unique_id=906147204]
 position = Vector2(-3, 1)

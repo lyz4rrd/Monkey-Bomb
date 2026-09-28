@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://b3gxtot2ku86"]
+
+[ext_resource type="Script" uid="uid://dpeatls4a28du" path="res://scripts/game_win.gd" id="1_1f66h"]
+
+[node name="game_win" type="Node2D" unique_id=2081565255]
+script = ExtResource("1_1f66h")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=828575868]
+offset_right = 613.0
+offset_bottom = 93.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1775739474]
+layout_mode = 2
+
+[node name="GameWinLabel" type="Label" parent="CenterContainer/VBoxContainer" unique_id=910092061]
+layout_mode = 2
+text = "Congratulations, little monkey! You’ve escaped! Be free! Enjoy your monkey life!"
+
+[node name="PlayAgainButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1076569144]
+layout_mode = 2
+text = "Play Again?"
+
+[node name="ExitGameButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=543546730]
+layout_mode = 2
+text = "Exit Game"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/PlayAgainButton" to="." method="_on_play_again_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/ExitGameButton" to="." method="_on_exit_game_button_pressed"]
