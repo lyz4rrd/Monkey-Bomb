@@ -320,7 +320,7 @@ animations = [{
 script = ExtResource("1_s8oj7")
 
 [node name="LevelMap" type="TileMapLayer" parent="." unique_id=538146852]
-tile_map_data = PackedByteArray("AAAFAAAAAAAJAAEAAAAEAAAAAAAIAAEAAAD7/wAAAAAIAAEAAAD8/wAAAAAJAAEAAAD+/wAAAAAEAAMAAAD+////AAAEAAEAAAACAAAAAAAEAAMAAAACAP//AAAEAAEAAAAAAP7/AAADAAIAAAD///7/AAADAAIAAAABAP7/AAADAAIAAAADAP3/AAABAAMAAAD8//3/AAABAAMAAAD9//3/AAADAAMAAAAEAP3/AAADAAMAAAA=")
+tile_map_data = PackedByteArray("AAAFAAAAAAAJAAEAAAAEAAAAAAAIAAEAAAD7/wAAAAAIAAEAAAD8/wAAAAAJAAEAAAD+////AAAEAAEAAAACAP//AAAEAAEAAAAAAP7/AAADAAIAAAD///7/AAADAAIAAAABAP7/AAADAAIAAAADAP3/AAABAAMAAAD8//3/AAABAAMAAAD9//3/AAADAAMAAAAEAP3/AAADAAMAAAD+/wAAAAAEAAIAAAACAAAAAAAEAAIAAAA=")
 tile_set = SubResource("TileSet_3gysh")
 
 [node name="MapCollisions" type="StaticBody2D" parent="." unique_id=2081166975]
@@ -357,6 +357,7 @@ shape = SubResource("RectangleShape2D_ntghr")
 [node name="LevelDoor" type="Area2D" parent="." unique_id=580528365]
 position = Vector2(15, -77)
 script = ExtResource("3_mw4xc")
+next_level = "uid://bk60wxl13wqdr"
 
 [node name="Sprite2D" type="Sprite2D" parent="LevelDoor" unique_id=906147204]
 position = Vector2(2, -2)
@@ -480,4 +481,4 @@ sprite_frames = SubResource("SpriteFrames_xcyda")
 offset = Vector2(15, -76)
 zoom = Vector2(3, 3)
 
-[connection signal="body_entered" from="LevelDoor" to="." method="_on_level_door_body_entered"]
+[connection signal="body_entered" from="LevelDoor" to="LevelDoor" method="_on_body_entered"]

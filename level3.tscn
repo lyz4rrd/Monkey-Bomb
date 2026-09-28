@@ -59,17 +59,42 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_epypp")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jjhhy"]
-size = Vector2(93, 9)
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_siwpi"]
+texture = ExtResource("14_7s766")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+4:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+0:3/0 = 0
+4:3/0 = 0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uc1ph"]
-size = Vector2(29, 9)
+[sub_resource type="TileSet" id="TileSet_jjhhy"]
+sources/0 = SubResource("TileSetAtlasSource_siwpi")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1iiia"]
-size = Vector2(62, 9)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uooy5"]
+size = Vector2(47, 10)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ntghr"]
-size = Vector2(62, 28)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0u4f1"]
+size = Vector2(29, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q74nr"]
+size = Vector2(30.5, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hop8g"]
+size = Vector2(91, 29)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cq7ag"]
+size = Vector2(161, 7)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ln8yi"]
 size = Vector2(21, 26)
@@ -320,53 +345,72 @@ animations = [{
 script = ExtResource("1_siwpi")
 
 [node name="LevelMap" type="TileMapLayer" parent="." unique_id=538146852]
-tile_map_data = PackedByteArray("AAAFAAAAAAAJAAEAAAAEAAAAAAAIAAEAAAD7/wAAAAAIAAEAAAD8/wAAAAAJAAEAAAD+/wAAAAAEAAMAAAD+////AAAEAAEAAAACAAAAAAAEAAMAAAACAP//AAAEAAEAAAAAAP7/AAADAAIAAAD///7/AAADAAIAAAABAP7/AAADAAIAAAADAP3/AAABAAMAAAD8//3/AAABAAMAAAD9//3/AAADAAMAAAAEAP3/AAADAAMAAAA=")
+tile_map_data = PackedByteArray("AAD7/wAAAAAFAAQAAAD8/wAAAAAGAAQAAAD9/wAAAAAHAAQAAAADAAAAAAAFAAQAAAAEAAAAAAAGAAQAAAAFAAAAAAAHAAQAAAD9//3/AAAJAAQAAAD+//3/AAAKAAQAAAD8//3/AAAIAAQAAAD8//z/AAAIAAMAAAD+//z/AAAKAAMAAAD+//v/AAAKAAIAAAD9//v/AAAJAAIAAAD8//v/AAAIAAIAAAD9//r/AAAGAAEAAAD+//r/AAAGAAEAAAD8//r/AAAGAAEAAAD///r/AAAHAAEAAAD7//r/AAAFAAEAAAD7//v/AAAFAAIAAAD7//z/AAAFAAIAAAD7//3/AAAFAAIAAAD7//7/AAAFAAMAAAD8//7/AAAGAAMAAAD9//7/AAAGAAMAAAD+//7/AAAGAAMAAAD///7/AAAHAAMAAAD///3/AAAHAAIAAAD///z/AAAHAAIAAAD///v/AAAHAAIAAAD//wAAAAADAAIAAAABAAAAAAADAAIAAAAFAP//AAAEAAIAAAAFAP7/AAAEAAIAAAAFAP3/AAAEAAEAAAAEAP7/AAAEAAEAAAADAP//AAAEAAEAAAAEAP//AAAEAAIAAAAAAP7/AAADAAIAAAA=")
 tile_set = SubResource("TileSet_3gysh")
+
+[node name="Spikes" type="TileMapLayer" parent="." unique_id=1460605946]
+tile_map_data = PackedByteArray("AAD8/wEAAAABAAAAAAD9/wEAAAABAAAAAAD+/wEAAAABAAAAAAD//wEAAAABAAAAAAAAAAEAAAABAAAAAAABAAEAAAABAAAAAAACAAEAAAABAAAAAAADAAEAAAABAAAAAAAEAAEAAAABAAAAAAAFAAEAAAABAAAAAAA=")
+tile_set = SubResource("TileSet_jjhhy")
 
 [node name="MapCollisions" type="StaticBody2D" parent="." unique_id=2081166975]
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MapCollisions" unique_id=1577517457]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MapCollisions" unique_id=609356372]
+position = Vector2(-79, -90)
+shape = SubResource("RectangleShape2D_uooy5")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="MapCollisions" unique_id=1717411691]
 position = Vector2(16, -58)
-shape = SubResource("RectangleShape2D_jjhhy")
+shape = SubResource("RectangleShape2D_0u4f1")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="MapCollisions" unique_id=919965466]
-position = Vector2(-48, -26)
-shape = SubResource("RectangleShape2D_uc1ph")
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="MapCollisions" unique_id=447493937]
+position = Vector2(112, -26)
+shape = SubResource("RectangleShape2D_0u4f1")
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="MapCollisions" unique_id=1639810548]
-position = Vector2(80, -26)
-shape = SubResource("RectangleShape2D_uc1ph")
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="MapCollisions" unique_id=223097057]
+position = Vector2(145, -58)
+shape = SubResource("RectangleShape2D_0u4f1")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="MapCollisions" unique_id=219578448]
-position = Vector2(-97, -90.5)
-shape = SubResource("RectangleShape2D_1iiia")
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="MapCollisions" unique_id=769739678]
+position = Vector2(175.5, -90)
+shape = SubResource("RectangleShape2D_0u4f1")
 
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="MapCollisions" unique_id=1630838457]
-position = Vector2(128, -89)
-shape = SubResource("RectangleShape2D_1iiia")
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="MapCollisions" unique_id=651627933]
+position = Vector2(47.75, 6)
+shape = SubResource("RectangleShape2D_q74nr")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="MapCollisions" unique_id=1707146693]
-position = Vector2(160, 16)
-shape = SubResource("RectangleShape2D_ntghr")
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="MapCollisions" unique_id=904782407]
+position = Vector2(-15, 6)
+shape = SubResource("RectangleShape2D_q74nr")
 
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="MapCollisions" unique_id=1539274388]
-position = Vector2(-128, 15)
-shape = SubResource("RectangleShape2D_ntghr")
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="MapCollisions" unique_id=1750244956]
+position = Vector2(-112.5, 15.5)
+shape = SubResource("RectangleShape2D_hop8g")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="MapCollisions" unique_id=1889679438]
+position = Vector2(143, 16)
+shape = SubResource("RectangleShape2D_hop8g")
+
+[node name="SpikeCollisions" type="StaticBody2D" parent="." unique_id=933627052 groups=["hazard"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpikeCollisions" unique_id=437145942]
+position = Vector2(16.5, 30.5)
+shape = SubResource("RectangleShape2D_cq7ag")
 
 [node name="LevelDoor" type="Area2D" parent="." unique_id=580528365]
-position = Vector2(15, -77)
+position = Vector2(-76, -112)
 script = ExtResource("3_qoi87")
 
 [node name="Sprite2D" type="Sprite2D" parent="LevelDoor" unique_id=906147204]
-position = Vector2(2, -2)
+position = Vector2(-3, 1)
 texture = ExtResource("4_i6w5t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelDoor" unique_id=586452081]
+position = Vector2(-4, 2)
 shape = SubResource("RectangleShape2D_ln8yi")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=474383502 groups=["player"]]
-position = Vector2(-143, 13)
+position = Vector2(-144, -26)
 script = ExtResource("5_l2pgs")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=808643809]
@@ -387,7 +431,7 @@ position = Vector2(2, -4)
 shape = SubResource("RectangleShape2D_ic27k")
 
 [node name="Robot" type="CharacterBody2D" parent="." unique_id=1670047660 groups=["robot"]]
-position = Vector2(145, -99)
+position = Vector2(148, -38)
 script = ExtResource("7_bs5pn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Robot" unique_id=1490095343]
@@ -428,7 +472,7 @@ position = Vector2(195, -81)
 shape = SubResource("RectangleShape2D_r7ta6")
 
 [node name="Floor" type="CollisionShape2D" parent="WorldBounds" unique_id=2128955566]
-position = Vector2(15, 32)
+position = Vector2(14, 35)
 shape = SubResource("RectangleShape2D_xgl6b")
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1788174972]
@@ -465,7 +509,7 @@ text = "Boost:"
 metadata/_edit_use_anchors_ = true
 
 [node name="Banana" type="Area2D" parent="." unique_id=571794125]
-position = Vector2(177, -8)
+position = Vector2(176, -105)
 script = ExtResource("13_s3sn0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Banana" unique_id=1237081049]
@@ -480,4 +524,4 @@ sprite_frames = SubResource("SpriteFrames_xcyda")
 offset = Vector2(15, -76)
 zoom = Vector2(3, 3)
 
-[connection signal="body_entered" from="LevelDoor" to="." method="_on_level_door_body_entered"]
+[connection signal="body_entered" from="LevelDoor" to="LevelDoor" method="_on_body_entered"]
