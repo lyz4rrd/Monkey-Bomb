@@ -5,16 +5,24 @@
 [node name="GameOver" type="Node2D" unique_id=2050444997]
 script = ExtResource("1_y26ei")
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2040969493]
+offset_right = 1163.0
+offset_bottom = 666.0
+color = Color(0.0010853444, 0.0010853446, 0.0010853445, 1)
+
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=455050544]
-offset_right = 515.0
-offset_bottom = 58.0
+offset_right = 1170.0
+offset_bottom = 646.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=375987332]
 layout_mode = 2
 
 [node name="GameOverLabel" type="Label" parent="CenterContainer/VBoxContainer" unique_id=588538128]
 layout_mode = 2
-text = "Oh no! Time for the Evil Scientists to get a new monkey I suppose…"
+text = "Oh no! 
+Time for the Evil Scientists to get a new monkey I suppose…
+"
+horizontal_alignment = 1
 
 [node name="PlayAgainButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=181861441]
 layout_mode = 2
