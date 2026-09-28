@@ -9,6 +9,8 @@ const BOOST_DURATION = 5.0
 
 var boost_time_remaining: float = 0.0
 
+var dead = false
+
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var bomb = get_tree().get_first_node_in_group("bomb")
 @onready var bomb_transfer_area: Area2D = $BombTransferArea
@@ -17,7 +19,6 @@ func _ready() -> void:
 	bomb_transfer_area.body_entered.connect(_on_bomb_transfer_body_entered)
 	
 func _on_bomb_transfer_body_entered(body: Node2D) -> void:
-	print("BombTransferArea detected: ", body.name)
 	if not body.is_in_group("robot"):
 		return
 
@@ -77,6 +78,25 @@ func _physics_process(delta: float) -> void:
 		animated_sprite.play("idle")
 
 	move_and_slide()
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+		
+		if collider.is_in_group("hazard"):
+			die()
 	
 func activate_banana_boost() -> void:
 	boost_time_remaining = BOOST_DURATION
+	
+func die():
+	if dead:
+		return
+	
+	dead = true
+	
+	var game_over = GameManager.lose_life()
+	
+	if game_over:
+		get_tree().change_scene_to_file("res://game_over.tscn")
+	else:
+		get_tree().reload_current_scene()

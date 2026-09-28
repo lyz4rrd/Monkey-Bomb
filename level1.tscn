@@ -364,17 +364,17 @@ position = Vector2(0, -20)
 script = ExtResource("2_epypp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=808643809]
-position = Vector2(1, -21)
+position = Vector2(1, -19)
 sprite_frames = SubResource("SpriteFrames_3gysh")
 animation = &"idle"
 speed_scale = 1.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=665529843]
-position = Vector2(2, -20)
+position = Vector2(2, -18)
 shape = SubResource("RectangleShape2D_3gysh")
 
 [node name="BombTransferArea" type="Area2D" parent="Player" unique_id=102773442]
-position = Vector2(0, -20)
+position = Vector2(0, -18)
 
 [node name="BombCollisionArea" type="CollisionShape2D" parent="Player/BombTransferArea" unique_id=1480979422]
 position = Vector2(2, -1)

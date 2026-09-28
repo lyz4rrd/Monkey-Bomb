@@ -84,7 +84,6 @@ func explode() -> void:
 	# Wait for the explosion animation
 	await get_tree().create_timer(animation_length).timeout
 
-	print("Animation finished")
 
 	# Hide the explosion
 	explosion_sprite.stop()

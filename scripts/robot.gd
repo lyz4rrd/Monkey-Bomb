@@ -10,7 +10,6 @@ var jump_cooldown := 0.0
 
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player") as CharacterBody2D
-	print(name, " player reference = ", player)
 
 func _physics_process(delta: float) -> void:
 	if player == null:
