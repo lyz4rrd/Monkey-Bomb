@@ -1,5 +1,7 @@
 extends Area2D
 
+@export_file("*.tscn") var next_level: String
+
 var unlocked: bool = false
 
 func _on_body_entered(body: Node2D) -> void:
@@ -9,5 +11,4 @@ func _on_body_entered(body: Node2D) -> void:
 	if not unlocked:
 		return
 
-	print("PLAYER TOUCHED DOOR")
-	get_tree().call_deferred("change_scene_to_file", "res://level2.tscn")
+	get_tree().call_deferred("change_scene_to_file", next_level)

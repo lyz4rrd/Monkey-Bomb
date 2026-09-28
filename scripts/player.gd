@@ -17,6 +17,7 @@ func _ready() -> void:
 	bomb_transfer_area.body_entered.connect(_on_bomb_transfer_body_entered)
 	
 func _on_bomb_transfer_body_entered(body: Node2D) -> void:
+	print("BombTransferArea detected: ", body.name)
 	if not body.is_in_group("robot"):
 		return
 

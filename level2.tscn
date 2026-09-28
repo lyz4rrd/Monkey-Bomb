@@ -69,7 +69,7 @@ size = Vector2(29, 9)
 size = Vector2(62, 9)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ntghr"]
-size = Vector2(62, 10)
+size = Vector2(62, 28)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ln8yi"]
 size = Vector2(21, 26)
@@ -347,11 +347,11 @@ position = Vector2(128, -89)
 shape = SubResource("RectangleShape2D_1iiia")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="MapCollisions" unique_id=1707146693]
-position = Vector2(160, 6)
+position = Vector2(160, 16)
 shape = SubResource("RectangleShape2D_ntghr")
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="MapCollisions" unique_id=1539274388]
-position = Vector2(-128, 6)
+position = Vector2(-128, 15)
 shape = SubResource("RectangleShape2D_ntghr")
 
 [node name="LevelDoor" type="Area2D" parent="." unique_id=580528365]
@@ -366,29 +366,28 @@ texture = ExtResource("3_r8rrl")
 shape = SubResource("RectangleShape2D_ln8yi")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=474383502 groups=["player"]]
-position = Vector2(-142, -4)
+position = Vector2(-143, 13)
 script = ExtResource("4_lwvnx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=808643809]
-position = Vector2(-3, -2)
+position = Vector2(0, -20)
 sprite_frames = SubResource("SpriteFrames_3gysh")
 animation = &"idle"
 speed_scale = 1.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=665529843]
-position = Vector2(-2, -1)
+position = Vector2(0, -20)
 shape = SubResource("RectangleShape2D_3gysh")
 
 [node name="BombTransferArea" type="Area2D" parent="Player" unique_id=102773442]
-position = Vector2(4, -5)
+position = Vector2(-1, -17)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/BombTransferArea" unique_id=1480979422]
-position = Vector2(-6, 3)
+[node name="BombCollisionArea" type="CollisionShape2D" parent="Player/BombTransferArea" unique_id=1480979422]
+position = Vector2(2, -4)
 shape = SubResource("RectangleShape2D_ic27k")
 
 [node name="Robot" type="CharacterBody2D" parent="." unique_id=1670047660 groups=["robot"]]
 position = Vector2(145, -99)
-collision_layer = 8
 script = ExtResource("6_4k5bj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Robot" unique_id=1490095343]
@@ -398,21 +397,6 @@ sprite_frames = SubResource("SpriteFrames_jjhhy")
 animation = &"run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Robot" unique_id=118812668]
-position = Vector2(0, -2)
-shape = SubResource("RectangleShape2D_xcyda")
-
-[node name="Robot2" type="CharacterBody2D" parent="." unique_id=1305872025 groups=["robot"]]
-position = Vector2(-101, -100)
-collision_layer = 8
-script = ExtResource("6_4k5bj")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Robot2" unique_id=1996980361]
-position = Vector2(1, -3)
-scale = Vector2(0.46875, 0.484375)
-sprite_frames = SubResource("SpriteFrames_jjhhy")
-animation = &"run"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Robot2" unique_id=1648472429]
 position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_xcyda")
 
