@@ -1,4 +1,4 @@
 # MonkeyBomb!
-Godot Game Jam for CS 4730 at UVA \
+Created for CS 4730 Godot Game Jam at UVA \
 \
 Game assets used can be found [here](https://itch.io/c/8184252/pass-it-on-class-game-jam-assets)
